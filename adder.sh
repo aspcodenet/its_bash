@@ -9,4 +9,4 @@ esac; done
 #därför så här
 let sum=tal1+tal2
 
-echo "Summan av $tal1 och $tal2 är $sum"
+echo Summan av $tal1 och $tal2 är $sum
