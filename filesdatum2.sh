@@ -1,4 +1,4 @@
- GNU nano 2.9.3                                                     filesdatum2.sh                                                               
+                                                       
 while [[ "$#" > 0 ]]; do case $1 in
   -d) d=$2; shift;shift;;
   -f) f=$2;shift;shift;;
