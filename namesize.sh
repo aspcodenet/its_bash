@@ -1,28 +1,18 @@
-#!/bin/bash
+ GNU nano 2.9.3                                                     filesdatum2.sh                                                               
+while [[ "$#" > 0 ]]; do case $1 in
+  -d) d=$2; shift;shift;;
+  -f) f=$2;shift;shift;;
+ *) echo "Unknown parameter passed: $1";shift;shift;;
+esac; done
 
-text="c:\hej\test\hello.txt"
-
-#a-uppgiften, vi kommer at skriva ut alla index för \ på formatet  index:/
-echo $text | grep -b -o '\\' 
-echo " "
-
-#tail ger oss sista raden av ovanstående
-echo $text | grep -b -o '\\' | tail -1
-echo " "
-
-#cut skär ut indexet, d står för delimiter, berättar vid vilket tecken vi ska skära
-echo $text | grep -b -o '\\' | tail -1 | cut -d : -f 1
-echo " "
-
-#b-uppgiften, hitta filnamnet i pathen
-b=$(basename $text)
-echo $b
-echo " "
-
-#c-uppgiften, säg ja om strängen inehåller ordet "hej"
-if [[ $text == *"hej"* ]]; then
-  echo "JA"
-fi
+FILES="$d"/*
+for fa in $FILES
+do
+        if [[ $fa == *"$f"*  ]]
+        then
+                size=$(stat -c%s "$fa")
+                echo "$fa $size"
+        fi
+done
 
 
-read hej
